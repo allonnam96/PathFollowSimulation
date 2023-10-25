@@ -40,10 +40,12 @@ class Path {
     drawGradientLine(this.points[this.points.length - 1], this.points[0], col1, col2);
 
     for (let obstacle of this.obstacles) {
-        fill(255);
-        noStroke();
-        ellipse(obstacle.x, obstacle.y, obstacle.z * 2); // Draw obstacles as circles
-    }
+      // imageMode(CENTER);
+      image(asteroid, obstacle.x - obstacle.z, obstacle.y - obstacle.z, obstacle.z * 2.5, obstacle.z * 2.5);
+    // noStroke();
+    // ellipse(obstacle.x, obstacle.y, obstacle.z * 2); // Draw obstacles as circles
+    // }
+}
 }
 }
 
@@ -103,7 +105,7 @@ return color(Rf, Gf, Bf);
 
 function drawGradientLine(v1, v2, col1, col2) {
 let segments = 10; // Increase for smoother gradients
-strokeWeight(3);
+strokeWeight(4);
 for (let i = 0; i < segments; i++) {
     let x = lerp(v1.x, v2.x, i / segments);
     let y = lerp(v1.y, v2.y, i / segments);

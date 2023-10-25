@@ -6,7 +6,7 @@ class Vehicle {
   // Constructor initialize all values
   constructor(x, y, ms, mf) {
     this.position = createVector(x, y);
-    this.r = 12;
+    this.r = 14;
     this.maxspeed = ms;
     this.maxforce = mf;
     this.acceleration = createVector(0, 0);
@@ -20,7 +20,7 @@ class Vehicle {
     // Separate from other boids force
     let s = this.separate(vehicles);
     // Arbitrary weighting
-    f.mult(3);
+    f.mult(2);
     s.mult(1);
     // Accumulate in acceleration
     this.applyForce(f);
@@ -28,15 +28,15 @@ class Vehicle {
 
     for (let obstacle of path.obstacles) {
       let avoidForce = this.avoid(obstacle);
-      avoidForce.mult(30); // You can adjust the multiplier as needed
+      avoidForce.mult(30); 
       this.applyForce(avoidForce);
     }
   }
 
   avoid(obstacle) {
-    let desired = p5.Vector.sub(this.position, obstacle);
+    let desired = p5.Vector.sub(this.position, obstacle.position);
     let d = desired.mag();
-    if (d < obstacle.z + this.r) { // Check if the vehicle is too close to the obstacle
+    if (d < obstacle.radius + this.r) {
       desired.normalize();
       desired.mult(this.maxspeed);
       let steer = p5.Vector.sub(desired, this.velocity);
@@ -46,6 +46,7 @@ class Vehicle {
       return createVector(0, 0);
     }
   }
+
 
   applyForce(force) {
     // We could add mass here if we want A = F / M
@@ -64,7 +65,7 @@ class Vehicle {
     // Predict position 25 (arbitrary choice) frames ahead
     let predict = this.velocity.copy();
     predict.normalize();
-    predict.mult(70);
+    predict.mult(100);
     let predictpos = p5.Vector.add(this.position, predict);
 
     // Now we must find the normal to the path from the predicted position
@@ -207,17 +208,18 @@ class Vehicle {
 
   render() {
     // Simpler boid is just a triangle pointing in the direction of velocity
-    fill(255);
-    stroke(0);
+    // fill(255);
+    // stroke(0);
     push();
     translate(this.position.x, this.position.y);
   
     // Calculate the angle of rotation based on velocity
-    let angle = atan2(this.velocity.y, this.velocity.x);
+    let angle = atan2(this.velocity.y, this.velocity.x) + HALF_PI;
     rotate(angle);
   
     // Draw the triangle with the updated rotation
-    triangle(-this.r, -this.r / 2, -this.r, this.r / 2, this.r, 0);
+    imageMode(CENTER);
+    image(jet, 0, 0, this.r * 2, this.r * 2);
     pop();
   }
   
@@ -233,6 +235,7 @@ function getNormalPoint(p, a, b) {
   ab.normalize(); // Normalize the line
   // Project vector "diff" onto line by using the dot product
   ab.mult(ap.dot(ab));
+
   let normalPoint = p5.Vector.add(a, ab);
   return normalPoint;
 }

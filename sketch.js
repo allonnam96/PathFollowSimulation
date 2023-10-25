@@ -5,8 +5,10 @@ let debug = false;
 
 // A path object (series of connected points)
 let path;
-
 let landscape;
+let jet;
+let asteroid;
+
 
 // Two vehicles
 let vehicles = [];
@@ -29,6 +31,7 @@ function setup() {
 }
 
 function draw() {
+  // imageMode(CENTER);
   background(landscape);
   // Display the path
   path.display();
@@ -42,7 +45,9 @@ function draw() {
 }
 
 function preload() {
-  landscape = loadImage('cosmos11.png')
+  landscape = loadImage('cosmos11.png');
+  jet = loadImage('jet2.png');
+  asteroid = loadImage(`asteroid1.png`);
 }
 
 let obstacles = [];
