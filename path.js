@@ -41,7 +41,7 @@ class Path {
 
     for (let obstacle of this.obstacles) {
       // imageMode(CENTER);
-      image(asteroid, obstacle.x - obstacle.z, obstacle.y - obstacle.z, obstacle.z * 2.5, obstacle.z * 2.5);
+      image(asteroid, obstacle.x - obstacle.z * 2, obstacle.y - obstacle.z * 1.7, obstacle.z * 4, obstacle.z * 4);
     // noStroke();
     // ellipse(obstacle.x, obstacle.y, obstacle.z * 2); // Draw obstacles as circles
     // }

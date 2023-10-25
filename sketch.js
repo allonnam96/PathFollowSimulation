@@ -8,6 +8,7 @@ let path;
 let landscape;
 let jet;
 let asteroid;
+let song;
 
 
 // Two vehicles
@@ -16,19 +17,16 @@ let vehicles = [];
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
   // Call a function to generate new Path object
+  // song.loop();
   newPath();
 
-  // We are now making random vehicles and storing them in an ArrayList
-  // for (let i = 0; i < 120; i++) {
-  //   newVehicle(random(width), random(height));
-  // }
 
   for (let i = 0; i < path.points.length; i+=2) {
     let point = path.points[i];
     path.addObstacle(point.x, point.y, 30); // Assuming a radius of 30 for each obstacle
   }
-
 }
+
 
 function draw() {
   // imageMode(CENTER);
@@ -47,7 +45,8 @@ function draw() {
 function preload() {
   landscape = loadImage('cosmos11.png');
   jet = loadImage('jet2.png');
-  asteroid = loadImage(`asteroid1.png`);
+  asteroid = loadImage(`asteroid6.png`);
+  song = loadSound('you&me.mp3');
 }
 
 let obstacles = [];
