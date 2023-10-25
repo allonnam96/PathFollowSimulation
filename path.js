@@ -35,8 +35,9 @@ class Path {
     // }
     // endShape(CLOSE);
     // Draw thin line for center of path
-    stroke(0);
-    strokeWeight(3.5);
+    stroke(255, 215, 0)
+    // stroke(0);
+    strokeWeight(4);
     noFill();
     beginShape();
     for (let v of this.points) {
@@ -45,8 +46,9 @@ class Path {
     endShape(CLOSE);
 
     for (let obstacle of this.obstacles) {
-      fill(0, 0, 0); // black color for obstacles
+      // fill(0, 0, 0); // black color for obstacles
       // noFill(); 
+      fill(255);
       noStroke();
       ellipse(obstacle.x, obstacle.y, obstacle.z * 2); // Draw obstacles as circles
     }

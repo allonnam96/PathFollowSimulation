@@ -207,7 +207,7 @@ class Vehicle {
 
   render() {
     // Simpler boid is just a triangle pointing in the direction of velocity
-    fill(75);
+    fill(255);
     stroke(0);
     push();
     translate(this.position.x, this.position.y);
@@ -218,7 +218,6 @@ class Vehicle {
   
     // Draw the triangle with the updated rotation
     triangle(-this.r, -this.r / 2, -this.r, this.r / 2, this.r, 0);
-  
     pop();
   }
   

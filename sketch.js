@@ -6,6 +6,8 @@ let debug = false;
 // A path object (series of connected points)
 let path;
 
+let landscape;
+
 // Two vehicles
 let vehicles = [];
 
@@ -27,7 +29,7 @@ function setup() {
 }
 
 function draw() {
-  background(240);
+  background(landscape);
   // Display the path
   path.display();
 
@@ -37,6 +39,10 @@ function draw() {
     // Call the generic run method (update, borders, display, etc.)
     v.run();
   }
+}
+
+function preload() {
+  landscape = loadImage('cosmos4.png')
 }
 
 let obstacles = [];
