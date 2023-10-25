@@ -42,7 +42,7 @@ function draw() {
 }
 
 function preload() {
-  landscape = loadImage('cosmos4.png')
+  landscape = loadImage('cosmos11.png')
 }
 
 let obstacles = [];
