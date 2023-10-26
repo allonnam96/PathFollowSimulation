@@ -9,16 +9,22 @@ This code creates a dynamic space-themed visual experience where vehicles can fo
 
 
 # How to Run:
+
 The canvas should automatically adjust to your window size.
 Click on the canvas to add vehicles at the desired location.
 Press 'y' to toggle the debug mode.
 
-# Vehicles: They follow a specified path while avoiding collisions with other vehicles and obstacles.
+# Vehicles: 
+
+They follow a specified path while avoiding collisions with other vehicles and obstacles.
 ![plot](snippets/Screenshot3.png)
 
-# Path: It's formed with a series of connected points. The path adjusts dynamically based on screen size.
+# Path: 
+
+It's formed with a series of connected points. The path adjusts dynamically based on screen size.
 ![plot](snippets/Screenshot4.png)
 
 # Future Improvements:
+
 not letting the aircraft generate when clicking on the icons
 slowing down the aircraft when coming closer to the obstacles
