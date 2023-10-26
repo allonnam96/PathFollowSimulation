@@ -2,20 +2,55 @@
 <html>
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <script language="javascript" type="text/javascript" src="you&me.mp3"></script> 
   
     <script language="javascript" type="text/javascript" src="sketch.js"></script> 
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path Following Simulation</title>
+
   </head>
   <body>
-    <audio controls loop>
-      <source src="you&me.mp3">
-    </audio>
     <script src="path.js"></script>
     <script src="vehicle.js"></script>
     <script src="sketch.js"></script>
+    <div class="canvas-container">
+      <div id="leftInfoBox">
+        <div class="info-container">
+            <a href="https://www.linkedin.com" target="_blank">
+                <img src="linkedinIcon.png" alt="LinkedIn Icon" class="info-icon">
+            </a>
+        </div>
+        <div class="info-container">
+            <a href="https://www.github.com" target="_blank">
+                <img src="githubIcon.png" alt="GitHub Icon" class="info-icon">
+            </a>
+        </div>
+        <div class="info-container">
+            <a href="https://www.example.com" target="_blank">
+                <img src="questionIcon.png" alt="Question Icon" class="info-icon">
+            </a>
+        </div>
+    </div>
+    
+
+    <div class="text">Click on the screen to make the aircraft appear. 
+
+      Press on the key 'y' to view the paths of the aircraft
+    </div>
+
+    
+
+    </div>
+
+    <div class="audio-container">
+      <audio controls loop>
+        <source src="you&me.mp3">
+      </audio>
+  </div>
+  
   </body>
 </html>

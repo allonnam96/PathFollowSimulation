@@ -5,3 +5,90 @@ html, body {
 canvas {
   display: block;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.canvas-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  
+}
+
+canvas {
+  display: block;
+  width: 100%;  /* takes up the full width of the canvas-container */
+  height: 100%; /* takes up the full height of the canvas-container */
+}
+
+#leftInfoBox {
+  position: absolute;
+  top: 50px;
+  padding: 100px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000000;
+  font-size: 20px;
+  z-index: 1;
+
+  display: flex;       /* use flexbox to layout icons horizontally */
+  align-items: top; /* center icons vertically */
+  justify-content: space-around; /* distribute icons with equal spacing */
+
+  width: 130px;  /* Adjust the width as needed */
+  height: 700px; /* Adjust the height as needed */
+  
+}
+
+.text {
+  position: absolute;
+  top: 300px;
+  left: 55px;
+  z-index: 3;  /* Ensure it appears above other elements */
+  font-family: 'Orbitron', sans-serif;  /* Using the robotic font Orbitron */
+  font-size: 20px;  /* Increase the font size */
+
+  max-width: 800px;     /* Or whatever width you want */
+  white-space: wrap;    /* This stops the text from wrapping */
+  overflow-x: scroll;     /* This adds a horizontal scrollbar if the text overflows its container */
+  padding: 0;
+  margin: 0;
+}
+
+
+
+#leftInfoBox {
+  left: 30px;
+}
+
+.audio-container {
+  position: absolute;
+  bottom: 70px;
+  left: 45px;
+  z-index: 2;  /* Ensure it appears above other elements */
+}
+
+.info-icon {
+  display: block;
+  margin: 20px auto; /* 20px for top and bottom margin, and auto to center horizontally */
+  width: 50px;  /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
+
+  flex: 1;             /* allow each icon to grow equally */
+  margin: 20px 10px;   /* 20px for top and bottom margin, 10px for left and right */
+}
+
+.info-icon[src="questionIcon.png"] {
+  width: 65px;   /* or whatever size you desire */
+  height: 65px;  /* keep the width and height the same for a square aspect ratio */
+  transform: translate(-5px, -7px);
+}
+

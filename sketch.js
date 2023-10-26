@@ -83,7 +83,7 @@ function mousePressed() {
 
 
 function keyPressed() {
-  if (key == "d") {
+  if (key == "y") {
     debug = !debug;
   }
 }
