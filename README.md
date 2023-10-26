@@ -1,6 +1,6 @@
 # Path Following Simulation
 
-http://127.0.0.1:5500/index.html
+https://allonnam96.github.io/PathFollowSimulation/
 
 ![plot](snippets/screenshot.png)
 This code creates a dynamic space-themed visual experience where vehicles can follow a path through the cosmos, avoiding obstacles in the form of Death Stars. The vehicles, or jets, will follow a circular path and avoid obstacles while also avoiding each other. Taking the idea from Steering Behaviors For Autonomous Characters by Craig Reynolds(http://www.red3d.com/cwr/steer/), the idea is to give life like behavior to autonomous entities. For instance, it is our intention to walk towards inner curve of the road to reach the destination as soon as possible and we do this without realising it sometimes.
@@ -26,5 +26,5 @@ It's formed with a series of connected points. The path adjusts dynamically base
 
 # Future Improvements:
 
-not letting the aircraft generate when clicking on the icons
-slowing down the aircraft when coming closer to the obstacles
+* Not letting the aircraft generate when clicking on the icons
+* slowing down the aircraft when coming closer to the obstacles
