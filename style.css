@@ -50,16 +50,15 @@ canvas {
 
 .text {
   position: absolute;
-  top: 300px;
-  left: 55px;
+  top: 200px;
   z-index: 3;  /* Ensure it appears above other elements */
   font-family: 'Orbitron', sans-serif;  /* Using the robotic font Orbitron */
   font-size: 20px;  /* Increase the font size */
 
   max-width: 800px;     /* Or whatever width you want */
-  white-space: wrap;    /* This stops the text from wrapping */
+  /* white-space: wrap;    This stops the text from wrapping */
   overflow-x: scroll;     /* This adds a horizontal scrollbar if the text overflows its container */
-  padding: 0;
+  padding: 0px 20px;
   margin: 0;
 }
 
@@ -92,3 +91,9 @@ canvas {
   transform: translate(-5px, -7px);
 }
 
+#topRightImage {
+  position: absolute;
+  top: 10px;
+  left: 1120px;
+  z-index: 2;  /* Ensure it appears above other elements */
+}

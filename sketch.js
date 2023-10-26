@@ -8,7 +8,7 @@ let path;
 let landscape;
 let jet;
 let asteroid;
-let song;
+// let song;
 
 
 // Two vehicles
@@ -46,7 +46,7 @@ function preload() {
   landscape = loadImage('cosmos11.png');
   jet = loadImage('jet2.png');
   asteroid = loadImage(`asteroid6.png`);
-  song = loadSound('you&me.mp3');
+  // song = loadSound('you&me.mp3');
 }
 
 let obstacles = [];
