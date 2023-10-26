@@ -22,7 +22,7 @@ class Path {
     this.obstacles.push(obstacle);
   }
 
-  // Draw the path
+
   display() {
     strokeJoin(ROUND);
 
@@ -34,17 +34,13 @@ class Path {
         let col2 = colorFromRatio((i + 1) / this.points.length);
         drawGradientLine(this.points[i], this.points[i + 1], col1, col2);
     }
-    // Close the path
     let col1 = colorFromRatio((this.points.length - 1) / this.points.length);
-    let col2 = colorFromRatio(0); // Loop back to start
+    let col2 = colorFromRatio(0); 
     drawGradientLine(this.points[this.points.length - 1], this.points[0], col1, col2);
 
     for (let obstacle of this.obstacles) {
-      // imageMode(CENTER);
       image(asteroid, obstacle.x - obstacle.z * 2, obstacle.y - obstacle.z * 1.7, obstacle.z * 4, obstacle.z * 4);
-    // noStroke();
-    // ellipse(obstacle.x, obstacle.y, obstacle.z * 2); // Draw obstacles as circles
-    // }
+
 }
 }
 }

@@ -13,16 +13,13 @@ class Vehicle {
     this.velocity = createVector(this.maxspeed, 0);
   }
 
-  // A function to deal with path following and separation
   applyBehaviors(vehicles, path) {
     // Follow path force
     let f = this.follow(path);
     // Separate from other boids force
     let s = this.separate(vehicles);
-    // Arbitrary weighting
     f.mult(2);
     s.mult(1);
-    // Accumulate in acceleration
     this.applyForce(f);
     this.applyForce(s);
 
