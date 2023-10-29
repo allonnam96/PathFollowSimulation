@@ -3,11 +3,11 @@
 class Path {
   constructor() {
     this.originalRadius = 30;
-    this.radius = this.originalRadius; // Store the current radius
+    this.radius = this.originalRadius;
     this.points = [];
-    this.obstacles = []; // Store obstacles
-    this.startColor = color(148, 0, 211); // Purple (Violet)
-    this.endColor = color(255, 0, 0);     // Red
+    this.obstacles = [];
+    this.startColor = color(148, 0, 211); 
+    this.endColor = color(255, 0, 0);
   }
   
 
@@ -46,7 +46,7 @@ class Path {
 }
 
 function colorFromRatio(ratio) {
-let wavelength = lerp(380, 750, 1 - ratio); // Visible spectrum
+let wavelength = lerp(380, 750, 1 - ratio);
 return wavelengthToColor(wavelength);
 }
 
@@ -100,7 +100,7 @@ return color(Rf, Gf, Bf);
 }
 
 function drawGradientLine(v1, v2, col1, col2) {
-let segments = 10; // Increase for smoother gradients
+let segments = 10;
 strokeWeight(4);
 for (let i = 0; i < segments; i++) {
     let x = lerp(v1.x, v2.x, i / segments);

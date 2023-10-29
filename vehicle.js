@@ -3,7 +3,7 @@
 // Vehicle class
 
 class Vehicle {
-  // Constructor initialize all values
+
   constructor(x, y, ms, mf) {
     this.position = createVector(x, y);
     this.r = 14;
@@ -46,11 +46,9 @@ class Vehicle {
 
 
   applyForce(force) {
-    // We could add mass here if we want A = F / M
     this.acceleration.add(force);
   }
 
-  // Main "run" function
   run() {
     this.update();
     this.render();
@@ -59,21 +57,20 @@ class Vehicle {
   // This function implements Craig Reynolds' path following algorithm
   // http://www.red3d.com/cwr/steer/PathFollow.html
   follow(path) {
-    // Predict position 25 (arbitrary choice) frames ahead
+
     let predict = this.velocity.copy();
     predict.normalize();
     predict.mult(100);
     let predictpos = p5.Vector.add(this.position, predict);
 
-    // Now we must find the normal to the path from the predicted position
-    // We look at the normal for each line segment and pick out the closest one
+
     let normal = null;
     let target = null;
     let worldRecord = 1000000; // Start with a very high worldRecord distance that can easily be beaten
 
     // Loop through all points of the path
     for (let i = 0; i < path.points.length; i++) {
-      // Look at a line segment
+
       let a = path.points[i];
       let b = path.points[(i + 1) % path.points.length]; // Note Path has to wraparound
 
@@ -82,8 +79,7 @@ class Vehicle {
 
       // Check if normal is on line segment
       let dir = p5.Vector.sub(b, a);
-      // If it's not within the line segment, consider the normal to just be the end of the line segment (point b)
-      //if (da + db > line.mag()+1) {
+      // If it's not within the line segment, consider the normal to just be the end of the line segment
       if (
         normalPoint.x < min(a.x, b.x) ||
         normalPoint.x > max(a.x, b.x) ||
@@ -106,7 +102,6 @@ class Vehicle {
 
         // Look at the direction of the line segment so we can seek a little bit ahead of the normal
         dir.normalize();
-        // This is an oversimplification
         // Should be based on distance to path & velocity
         dir.mult(50);
         target = normal.copy();
@@ -114,7 +109,7 @@ class Vehicle {
       }
     }
 
-    // Draw the debugging stuff
+    // Draw the debugging
     if (debug) {
       // Draw predicted future position
       stroke(0);
@@ -177,11 +172,8 @@ class Vehicle {
     return steer;
   }
 
-  // Method to update position
   update() {
-    // Update velocity
     this.velocity.add(this.acceleration);
-    // Limit speed
     this.velocity.limit(this.maxspeed);
     this.position.add(this.velocity);
     // Reset accelertion to 0 each cycle
@@ -205,8 +197,6 @@ class Vehicle {
 
   render() {
     // Simpler boid is just a triangle pointing in the direction of velocity
-    // fill(255);
-    // stroke(0);
     push();
     translate(this.position.x, this.position.y);
   
@@ -223,11 +213,8 @@ class Vehicle {
 }
 
 // A function to get the normal point from a point (p) to a line segment (a-b)
-// This function could be optimized to make fewer new Vector objects
 function getNormalPoint(p, a, b) {
-  // Vector from a to p
   let ap = p5.Vector.sub(p, a);
-  // Vector from a to b
   let ab = p5.Vector.sub(b, a);
   ab.normalize(); // Normalize the line
   // Project vector "diff" onto line by using the dot product
