@@ -1,45 +1,44 @@
-
-
-// Using this variable to decide whether to draw all the paths
-let debug = false;
-
-// A path object (series of connected points)
 let path;
 let landscape;
 let jet;
 let asteroid;
-
-
 let vehicles = [];
+let debug = false;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
 
   newPath();
 
-
-  for (let i = 0; i < path.points.length; i+=2) {
+  for (let i = 0; i < path.points.length; i += 2) {
     let point = path.points[i];
-    path.addObstacle(point.x, point.y, 30); 
+    path.addObstacle(point.x, point.y, 30);
   }
 }
 
+function resizeCanvas() {
+  var canvas = document.querySelector('canvas');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+window.onload = resizeCanvas;
+window.onresize = resizeCanvas;
 
 function draw() {
   background(landscape);
   path.display();
 
   for (let v of vehicles) {
-    // Path following and separation are worked on in this function
     v.applyBehaviors(vehicles, path);
     v.run();
   }
 }
 
 function preload() {
-  landscape = loadImage('cosmos11.png');
-  jet = loadImage('jet2.png');
-  asteroid = loadImage(`asteroid6.png`);
+  landscape = loadImage('./design/artComponents/cosmos11.png');
+  jet = loadImage('./design/artComponents/jet2.png');
+  asteroid = loadImage(`./design/artComponents/asteroid6.png`);
 }
 
 let obstacles = [];
@@ -67,16 +66,14 @@ function newPath() {
   }
 }
 
-
 function mousePressed() {
   let maxspeed = random(2, 4);
   let maxforce = 0.3;
   vehicles.push(new Vehicle(mouseX, mouseY, maxspeed, maxforce));
 }
 
-
 function keyPressed() {
-  if (key == "y") {
+  if (key == "y" || key == "Y") {
     debug = !debug;
   }
 }
